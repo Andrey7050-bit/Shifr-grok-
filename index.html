@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ШДЧС — Шифровальщик Число-Символы</title>
+    <meta name="description" content="Надёжный русский шифр: Число-Символы">
+    
+    <!-- Tailwind CSS (для быстрой красивой стилизации) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        .output {
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-950 to-zinc-900 text-white min-h-screen">
+
+    <div class="max-w-4xl mx-auto p-6">
+        
+        <!-- Заголовок -->
+        <header class="text-center mb-10">
+            <h1 class="text-5xl font-bold mb-2 flex items-center justify-center gap-3">
+                🔐 ШДЧС
+            </h1>
+            <p class="text-xl text-slate-300">Шифрование Число-Символы</p>
+        </header>
+
+        <!-- Основной контейнер -->
+        <div class="bg-zinc-900 rounded-3xl shadow-2xl border border-slate-700 overflow-hidden">
+            
+            <!-- Навигация (табы) -->
+            <div class="flex border-b border-slate-700">
+                <button onclick="showTab(0)" class="tab-button flex-1 py-5 font-medium text-lg border-b-4 border-cyan-500 text-cyan-400">
+                    🔒 Зашифровать
+                </button>
+                <button onclick="showTab(1)" class="tab-button flex-1 py-5 font-medium text-lg">
+                    🔓 Расшифровать
+                </button>
+            </div>
+
+            <!-- Содержимое вкладок -->
+            <div id="tab-0" class="tab-content p-8">
+                <!-- Сюда будет форма шифрования -->
+            </div>
+
+            <div id="tab-1" class="tab-content p-8 hidden">
+                <!-- Сюда будет форма расшифрования -->
+            </div>
+
+        </div>
+
+        <!-- Дополнительная информация -->
+        <footer class="text-center text-slate-500 mt-8 text-sm">
+            Приложение ШДЧС • Версия 1.0
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Переключение вкладок
+        function showTab(tabIndex) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.add('hidden');
+            });
+            document.getElementById(`tab-${tabIndex}`).classList.remove('hidden');
+
+            // Активная кнопка
+            document.querySelectorAll('.tab-button').forEach((btn, index) => {
+                if (index === tabIndex) {
+                    btn.classList.add('border-b-4', 'border-cyan-500', 'text-cyan-400');
+                } else {
+                    btn.classList.remove('border-b-4', 'border-cyan-500', 'text-cyan-400');
+                }
+            });
+        }
+
+        // Инициализация
+        document.addEventListener('DOMContentLoaded', () => {
+            showTab(0);
+        });
+    </script>
+
+</body>
+</html>
